@@ -1,0 +1,63 @@
+@endpoint = https://zsasuut2rd.execute-api.eu-central-1.amazonaws.com/prod
+@jwt = eyJraWQiOiJrcG1CTDRMNFNBQ1pnc1hGTW9yZERLdGh6QVp0dHBOSUR0WVViQmlYR3Y0PSIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiIzZjYwM2IyOS0xMzA2LTQ1OWEtOTYyYy04YmJkOTJiZmM5NjEiLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwiaXNzIjoiaHR0cHM6XC9cL2NvZ25pdG8taWRwLmV1LWNlbnRyYWwtMS5hbWF6b25hd3MuY29tXC9ldS1jZW50cmFsLTFfM2Y5dlNjRnpKIiwiY29nbml0bzp1c2VybmFtZSI6IkhvbGlkYXlBZG1pbiIsIm9yaWdpbl9qdGkiOiIyMGRiM2E5YS1iNTE0LTQ3ZjgtODlmNi1mN2I5M2NmZWQyODYiLCJhdWQiOiIycnBncGI5dWVkaHNhNmIyOHVqM2VsbGloNyIsImV2ZW50X2lkIjoiMzllY2NjNTUtODBkZC00MTI3LThjZTktZDJkZTY5NGY2NGFjIiwidG9rZW5fdXNlIjoiaWQiLCJhdXRoX3RpbWUiOjE2NDY5MzM0MTcsImV4cCI6MTY0NjkzNzAxNywiaWF0IjoxNjQ2OTMzNDE3LCJqdGkiOiI2NTcxYzIxYS05ZDYzLTQ2Y2YtYTk1ZC1iY2YyMzQ3Njk1MGYiLCJlbWFpbCI6ImRldkBzbXVjb24uY29tIn0.fGdCb0CHTAgsSVwHl91_4_Ry-IXAjEK6eS69dfzAdkOlXY1pSuImzPCMer9Cx24DTzbnKsgVmOFXmqOvc-esObIIWc8-HEJo1LxKuz-y7I45TxjXeVdpHB_ptOdgUyMEzfppvpTqwxz__yo7kYf0r9rOcm7zJvGLBlGrIEKCD23Qu5NiNSp9akyHdOAf33HE7ABFlbYD9Mv_Qb6F_6luxVwMyq6eynBJK9ms533iVGuJ9nKju9Y9qysGkcauv7OJIl3yHbWLEeI3lwHal7Ax-CxDOH2xBqWaRrm5LVu7viQKooo2xaa3EZM_Vkdq7tvHeRcvvJm0fstRnFsv83pOEw
+
+
+POST {{endpoint}}/holidays
+Content-Type: application/json
+Authorization: {{jwt}}
+
+{ "State": "HE", "SK": "State_HE", "Name": "HE", "FullName": "Hessen" }
+###
+
+POST {{endpoint}}/holidays
+Content-Type: application/json
+Authorization: {{jwt}}
+
+{ "State": "BY", "SK": "State_BY", "Name": "BY", "FullName": "Bayern" }
+###
+
+
+POST {{endpoint}}/holidays
+Content-Type: application/json
+Authorization: {{jwt}}
+
+{ "State": "HE", "SK": "20230101_20230101", "Name": "Neujahr", "StartDate": "20230101", "EndDate": "20230101", "Type": "Feiertag" }
+###
+
+
+PUT {{endpoint}}/holidays
+Content-type: application/json
+Authorization: {{jwt}}
+
+{ "State": "HE", "SK": "20230101_20230101", "Name": "New Year", "StartDate": "20230101", "EndDate": "20230101", "Type": "Feiertag" }
+###
+
+POST {{endpoint}}/holidays
+Content-Type: application/json
+Authorization: {{jwt}}
+
+{ "State": "BY", "SK": "20220101_20220101", "Name": "Neujahr", "StartDate": "20220101", "EndDate": "20220101", "Type": "Feiertag" }
+###
+
+POST {{endpoint}}/holidays
+Content-Type: application/json
+Authorization: {{jwt}}
+
+{ "State": "BY", "SK": "20220106_20220106", "Name": "Neujahr", "StartDate": "20220106", "EndDate": "20220106", "Type": "Feiertag" }
+###
+
+GET {{endpoint}}/holidays
+###
+
+GET {{endpoint}}/holidays?State=HE&SK=2023
+###
+
+GET {{endpoint}}/holidays?Type=Feiertag
+###
+
+GET {{endpoint}}/holidays?Type=Feiertag&SK=2023
+###
+
+DELETE {{endpoint}}/holidays?State=BY&SK=20220106_20220106
+Authorization: {{jwt}}
+###
